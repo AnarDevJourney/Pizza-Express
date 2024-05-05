@@ -4,6 +4,9 @@
 
 Pizza Express is a React project where people can order pizza without authentication.
 
+You can view the project live here:
+[Pizza-Express](https://pizza-express-react-app.netlify.app/)
+
 ### Table of Contents
 
 - [Project-requirements-from-the-business](#project-requirements-from-the-business)
