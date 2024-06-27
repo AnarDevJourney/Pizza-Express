@@ -3,8 +3,12 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  
+  // Retrieves username from Redux store
   const username = useSelector((state) => state.user.username);
   const navigate = useNavigate();
+  
+  // Function to navigate to the menu page
   function handleContinueOrdering() {
     navigate("/menu");
   }
@@ -17,7 +21,7 @@ const Home = () => {
           Explore delicious pizzas and savor mouthwatering flavors.
         </span>
       </h1>
-      {!username ? (
+      {!username ? ( // Renders CreateUser component if username is not set
         <CreateUser />
       ) : (
         <button

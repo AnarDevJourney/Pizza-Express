@@ -7,7 +7,7 @@ import {
 } from "../../utils/helpers";
 import OrderItem from "./OrderItem";
 
-//! Fake Order
+//! Fake Order - This is a placeholder for testing purposes
 /* const order = {
   id: "ABCDEF",
   customer: "Jonas",
@@ -45,6 +45,7 @@ import OrderItem from "./OrderItem";
 }; */
 
 const Order = () => {
+  // Retrieve the order data from the loader
   const order = useLoaderData();
   const { id, status, priority, priorityPrice, orderPrice, estimatedDelivery } =
     order;
@@ -52,6 +53,7 @@ const Order = () => {
 
   return (
     <div className="mx-auto mt-8 max-w-4xl space-y-8 px-4 py-6">
+      {/* Order header with order ID and status */}
       <div className="flex flex-wrap items-center justify-between gap-4">
         <h1 className="text-xl font-semibold">Order {id}</h1>
         <div className="flex items-center space-x-6">
@@ -65,6 +67,7 @@ const Order = () => {
           </p>
         </div>
       </div>
+      {/* Delivery time information */}
       <div className="flex flex-wrap items-center justify-between gap-4 rounded-xl bg-stone-200 px-6 py-4">
         <p className="font-semibold">
           Only {calculateRemainingTime(estimatedDelivery)} left
@@ -73,6 +76,7 @@ const Order = () => {
           Estimated delivery: {formatDateTime(estimatedDelivery)}
         </p>
       </div>
+      {/* Order items list */}
       <div>
         <ul className="divide-y divide-stone-200 border-b border-t">
           {cart.map((item) => (
@@ -80,6 +84,7 @@ const Order = () => {
           ))}
         </ul>
       </div>
+      {/* Order price breakdown */}
       <div className="space-y-4 rounded-xl bg-stone-200 px-6 py-4">
         <p>Price pizzas: {formatCurrency(orderPrice)}</p>
         <p>Priority price: {formatCurrency(priorityPrice)}</p>
@@ -93,6 +98,7 @@ const Order = () => {
 
 export default Order;
 
+// Loader function to fetch order data based on order ID from params
 // eslint-disable-next-line react-refresh/only-export-components
 export async function loader({ params }) {
   const order = await getOrder(params.orderId);

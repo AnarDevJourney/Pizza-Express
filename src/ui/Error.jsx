@@ -3,9 +3,12 @@ import { useNavigate, useRouteError } from "react-router-dom";
 const Error = () => {
   const navigate = useNavigate();
   const error = useRouteError();
+
+  // Function to navigate back to the previous page
   function handleGoBack() {
     navigate(-1);
   }
+  
   return (
     <div>
       <h1>Something went wrong 😢</h1>

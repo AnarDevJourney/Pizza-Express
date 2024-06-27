@@ -24,7 +24,10 @@ const Menu = () => {
       soldOut: true,
     },
   ]; */
+
+  // Load menu data using the useLoaderData hook
   const menu = useLoaderData();
+
   return (
     <ul className="mx-auto max-w-6xl divide-y divide-stone-200 p-2">
       {menu.map((pizza) => (
@@ -36,6 +39,7 @@ const Menu = () => {
 
 export default Menu;
 
+// Loader function to fetch the menu data
 // eslint-disable-next-line react-refresh/only-export-components
 export async function loader() {
   const menu = await getMenu();

@@ -7,8 +7,14 @@ import { formatCurrency } from "../../utils/helpers";
 const MenuItem = ({ pizza }) => {
   const { id, name, unitPrice, imageUrl, ingredients, soldOut } = pizza;
   const dispatch = useDispatch();
+
+  // Get the current quantity of the pizza in the cart
   const currentQuantity = useSelector(getCurrentQuantityById(id));
+
+  // Determine if the pizza is already in the cart
   const isInCart = currentQuantity > 0;
+
+  // Handler to add the pizza to the cart
   function handleAddToCart() {
     const newItem = {
       id,
@@ -19,6 +25,7 @@ const MenuItem = ({ pizza }) => {
     };
     dispatch(addItem(newItem));
   }
+
   return (
     <li className="flex items-center gap-4 pb-4">
       <img
@@ -33,12 +40,16 @@ const MenuItem = ({ pizza }) => {
         </p>
         <div className="mt-auto flex items-center justify-between text-sm">
           {!soldOut ? <p>{formatCurrency(unitPrice)}</p> : <p>Sold Out</p>}
+          
+          {/* If the pizza is in the cart, show the update and delete options */}
           {isInCart && (
             <div className="flex items-center space-x-3">
               <UpdateItemQuantity id={id} currentQuantity={currentQuantity} />
               <Delete id={id} />
             </div>
           )}
+          
+          {/* If the pizza is not sold out and not in the cart, show the add to cart button */}
           {!soldOut && !isInCart && (
             <button onClick={handleAddToCart} className="button-small">
               Add to cart
