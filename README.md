@@ -9,11 +9,11 @@ You can view the project live here:
 
 ### Table of Contents
 
-- [Project-requirements-from-the-business](#project-requirements-from-the-business)
+- [Project-features](#project-features)
 - [Technologies](#getting-started)
 - [References](#references)
 
-## Project requirements from the business
+## Project features
 
 - Very simple application, where users can order one or more pizzas from a menu
 - Requires no user accounts and no login: users just input their names before using the app
